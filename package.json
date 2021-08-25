@@ -85,6 +85,7 @@
   },
   "dependencies": {
     "eventemitter3": "^4.0.7",
+    "mongoose": "^6.0.0",
     "path": "^0.12.7"
   }
 }

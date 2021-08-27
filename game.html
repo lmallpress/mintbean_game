@@ -11,7 +11,7 @@
 
     var player1Score = 0;
     var player2Score = 0
-    const WINNING_SCORE = 3;
+    const WINNING_SCORE = 20;
 
     var showingWinScreen = false;
 
@@ -153,14 +153,16 @@
 
         drawNet();  //order of the drawEverything items is important. Net goes before the ball so that when the ball passes over it, you can still see the ball. 
 
+        //this is the ball
+        colorCircle(ballX, ballY, 10, 'red');
+        
         //this is the left player paddle, in white
         colorRect(0, paddle1Y, PADDLE_THICKNESS, PADDLE_HEIGHT, 'white');
 
         //this is the right player paddle, in white
         colorRect(canvas.width - PADDLE_THICKNESS, paddle2Y, PADDLE_THICKNESS, PADDLE_HEIGHT, 'white');
 
-        //this is the ball
-        colorCircle(ballX, ballY, 10, 'red');
+        
 
         canvasContext.fillText(player1Score, 100, 100);
         canvasContext.fillText(player2Score, canvas.width - 100, 100);

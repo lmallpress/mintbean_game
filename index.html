@@ -10,6 +10,7 @@
     <canvas id="gameCanvas" width="800" height="600"></canvas>
 
     <script>
+        //global variables that can be called anywhere
         var ballX = 75; //this is width
         var ballY = 75;  //this is height for the ball in movement
         var ballSpeedX = 5;
@@ -36,8 +37,8 @@
             var rect = canvas.getBoundingClientRect();  //position of canvas on page
             var root = document.documentElement;
 
-            var mouseX = evt.clientX - rect.left - root.scrollLeft;
-            var mouseY = evt.clientY - rect.top - root.scrollTop;
+            mouseX = evt.clientX - rect.left - root.scrollLeft;
+            mouseY = evt.clientY - rect.top - root.scrollTop;
 
             paddleX = mouseX - PADDLE_WIDTH / 2; //subtracting half of the paddle with centers the paddle on the mouse
         }
@@ -48,9 +49,9 @@
                     brickGrid[i] = true;
                 } else {
                     brickGrid[i] = false;
-                } // end of else (rand check)
+                } // end of else (math random check)
             } // end of for each brick
-        } // end of brickReset func
+        } // end of brickReset function
 
         window.onload = function () {
             canvas = document.getElementById('gameCanvas');
@@ -111,12 +112,14 @@
         }
 
         function drawBricks() {
+        //using an array allows for muliple brick in easy to read code rather than one line of code per brick 
+
             for (var i = 0; i < BRICK_COUNT; i++) {
                 if (brickGrid[i]) {
                     colorRect(BRICK_W * i, 0, BRICK_W - 2, BRICK_H, 'blue');
                 } // end of is this brick here
             } // end of for each brick
-        } // end of drawBricks func
+        } // end of drawBricks function
 
 
 
@@ -128,6 +131,7 @@
 
             colorRect(paddleX, canvas.height - PADDLE_DIST_FROM_EDGE,
                 PADDLE_WIDTH, PADDLE_THICKNESS, 'white');
+
             drawBricks();
 
             colorText(mouseX + "," + mouseY, mouseX, mouseY, 'yellow');

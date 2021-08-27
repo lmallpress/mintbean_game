@@ -14,7 +14,7 @@
 
     var paddle1Y = 250;
     var paddle2Y = 250
-    const PADDLE_THICKNESS = 10;
+    const PADDLE_THICKNESS = 10; //this type of paddle is vertical on the sides (100,10)
     const PADDLE_HEIGHT = 100; //const is a variable that never changes. recommened to make it all uppercase to differentiate, and remind, that it is not a changeable variable
 
 

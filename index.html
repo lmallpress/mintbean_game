@@ -128,8 +128,7 @@
                 if (isBrickAtColRow(ballBrickCol, ballBrickRow)) {
                     brickGrid[brickIndexUnderBall] = false;
                     bricksLeft--;
-                    // console.log(bricksLeft);
-
+                   
                     var prevBallX = ballX - ballSpeedX;
                     var prevBallY = ballY - ballSpeedY;
                     var prevBrickCol = Math.floor(prevBallX / BRICK_W);
@@ -182,7 +181,7 @@
             } // ball center inside paddle
         } // end of ballPaddleHandling
 
-        
+
         function moveAll() {
             ballMove();
 

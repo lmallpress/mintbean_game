@@ -1,0 +1,71 @@
+
+var canvas, canvasContext;
+
+window.onload = function () {
+    canvas = document.getElementById('gameCanvas');
+    canvasContext = canvas.getContext('2d');
+
+    var framesPerSecond = 30;
+    setInterval(updateAll, 1000 / framesPerSecond);
+
+    canvas.addEventListener('mousemove', updateMousePos);
+
+    brickReset();
+    ballReset(); //enabling this starts the ball at the bottom of the bricks. Disabling starts ball inside the bricks at 75
+}
+
+function updateAll() {
+    moveAll();
+    drawAll();
+}
+
+
+function drawBricks() {
+
+    for (var eachRow = 0; eachRow < BRICK_ROWS; eachRow++) {
+        for (var eachCol = 0; eachCol < BRICK_COLS; eachCol++) {
+
+            var arrayIndex = rowColToArrayIndex(eachCol, eachRow);
+
+            if (brickGrid[arrayIndex]) {
+                colorRect(BRICK_W * eachCol, BRICK_H * eachRow,
+                    BRICK_W - BRICK_GAP, BRICK_H - BRICK_GAP, 'blue');
+            } // end of is this brick here
+        } // end of for each brick
+    } // end of for each row
+
+} // end of drawBricks function
+
+
+
+//background, ball, brick colors, sizes
+function drawAll() {
+    colorRect(0, 0, canvas.width, canvas.height, 'black'); // clear screen
+
+    colorCircle(ballX, ballY, 10, 'white'); // draw ball
+
+    colorRect(paddleX, canvas.height - PADDLE_DIST_FROM_EDGE,
+        PADDLE_WIDTH, PADDLE_THICKNESS, 'white');
+
+    drawBricks();
+}
+
+
+//this will draw the rectangle 
+function colorRect(topLeftX, topLeftY, boxWidth, boxHeight, fillColor) {
+    canvasContext.fillStyle = fillColor;
+    canvasContext.fillRect(topLeftX, topLeftY, boxWidth, boxHeight); //top corner of the screen
+}
+
+//circle business
+function colorCircle(centerX, centerY, radius, fillColor) {
+    canvasContext.fillStyle = fillColor;
+    canvasContext.beginPath();
+    canvasContext.arc(centerX, centerY, 10, 0, Math.PI * 2, true); //circle center
+    canvasContext.fill();
+}
+
+function colorText(showWords, textX, textY, fillColor) {
+    canvasContext.fillStyle = fillColor;
+    canvasContext.fillText(showWords, textX, textY);
+}

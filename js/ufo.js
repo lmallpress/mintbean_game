@@ -6,6 +6,7 @@ var ufoPicLoaded = false;
 
 var ufoX = 75; //position of where ufo starts
 var ufoY = 75;  //position of where ufo starts
+var ufoAng = 0;
 var ufoSpeedX = 5;
 var ufoSpeedY = 7;
 
@@ -20,6 +21,8 @@ function ufoReset() {
 function ufoMove() {
     ufoX += ufoSpeedX;
     ufoY += ufoSpeedY;
+
+    ufoAng += 0.02;
 
     if (ufoX < 0 && ufoSpeedX < 0.0) { //left
         ufoSpeedX *= -1;

@@ -50,8 +50,9 @@ function drawAll() {
 
     //colorCircle(ufoX, ufoY, 10, '#800000'); // draw ufo
     if (ufoPicLoaded) {
-        canvasContext.drawImage(ufoPic,
-            ufoX - ufoPic.width / 2, ufoY - ufoPic.height / 2);
+       // canvasContext.drawImage(ufoPic,
+         //   ufoX - ufoPic.width / 2, ufoY - ufoPic.height / 2);
+         drawBitmapCenteredWithRotation(ufoPic, ufoX, ufoY, ufoAng);
     }
 
     colorRect(paddleX, canvas.height - PADDLE_DIST_FROM_EDGE,

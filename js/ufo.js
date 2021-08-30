@@ -13,7 +13,8 @@ var ufoSpeedY = 7;
 
 function ufoReset() {
     ufoSpeedX = -ufoSpeedX;
-    ufoX = canvas.width / 2;
+    //ufoX = canvas.width / 2;
+    ufoX = BRICK_ROWS+1;
     ufoY = canvas.height / 2;
 }
 

@@ -12,6 +12,8 @@ var ufoSpeedY = 7;
 
 
 function ufoReset() {
+    ufoSpeedX = -ufoSpeedX;
+    
     ufoX = canvas.width / 2;
     ufoY = canvas.height / 2;
 }

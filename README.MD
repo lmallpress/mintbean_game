@@ -1,0 +1,1 @@
+A simple brick breaker game.  Move your mouse to hit the ufo

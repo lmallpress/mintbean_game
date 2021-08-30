@@ -31,45 +31,45 @@ function isBrickAtColRow(col, row) {
 }
 
 
-function ballBrickHandling() {
-    var ballBrickCol = Math.floor(ballX / BRICK_W);
-    var ballBrickRow = Math.floor(ballY / BRICK_H);
-    var brickIndexUnderBall = rowColToArrayIndex(ballBrickCol, ballBrickRow);
+function ufoBrickHandling() {
+    var ufoBrickCol = Math.floor(ufoX / BRICK_W);
+    var ufoBrickRow = Math.floor(ufoY / BRICK_H);
+    var brickIndexUnderUfo = rowColToArrayIndex(ufoBrickCol, ufoBrickRow);
 
 
-    //this makes brick disappear when ball makes contact
-    if (ballBrickCol >= 0 && ballBrickCol < BRICK_COLS &&
-        ballBrickRow >= 0 && ballBrickRow < BRICK_ROWS) {
+    //this makes brick disappear when ufo makes contact
+    if (ufoBrickCol >= 0 && ufoBrickCol < BRICK_COLS &&
+        ufoBrickRow >= 0 && ufoBrickRow < BRICK_ROWS) {
 
-        if (isBrickAtColRow(ballBrickCol, ballBrickRow)) {
-            brickGrid[brickIndexUnderBall] = false;
+        if (isBrickAtColRow(ufoBrickCol, ufoBrickRow)) {
+            brickGrid[brickIndexUnderUfo] = false;
             bricksLeft--;
            
-            var prevBallX = ballX - ballSpeedX;
-            var prevBallY = ballY - ballSpeedY;
-            var prevBrickCol = Math.floor(prevBallX / BRICK_W);
-            var prevBrickRow = Math.floor(prevBallY / BRICK_H);
+            var prevUfoX = ufoX - ufoSpeedX;
+            var prevUfoY = ufoY - ufoSpeedY;
+            var prevBrickCol = Math.floor(prevUfoX / BRICK_W);
+            var prevBrickRow = Math.floor(prevUfoY / BRICK_H);
 
             var bothTestsFailed = true;
 
-            if (prevBrickCol != ballBrickCol) {
-                if (isBrickAtColRow(prevBrickCol, ballBrickRow) == false) {
-                    ballSpeedX *= -1;
+            if (prevBrickCol != ufoBrickCol) {
+                if (isBrickAtColRow(prevBrickCol, ufoBrickRow) == false) {
+                    ufoSpeedX *= -1;
                     bothTestsFailed = false;
                 }
             }
-            if (prevBrickRow != ballBrickRow) {
-                if (isBrickAtColRow(ballBrickCol, prevBrickRow) == false) {
-                    ballSpeedY *= -1;
+            if (prevBrickRow != ufoBrickRow) {
+                if (isBrickAtColRow(ufoBrickCol, prevBrickRow) == false) {
+                    ufoSpeedY *= -1;
                     bothTestsFailed = false;
                 }
             }
 
-            if (bothTestsFailed) { // armpit case, prevents ball from going through
-                ballSpeedX *= -1;
-                ballSpeedY *= -1;
+            if (bothTestsFailed) { // armpit case, prevents ufo from going through
+                ufoSpeedX *= -1;
+                ufoSpeedY *= -1;
             }
 
         } // end of brick found
     } // end of valid col and row
-} // end of ballBrickHandling function
+} // end of ufoBrickHandling function

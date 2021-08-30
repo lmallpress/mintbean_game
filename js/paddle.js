@@ -4,35 +4,35 @@ const PADDLE_DIST_FROM_EDGE = 60;
 var paddleX = 400;
 
 
-function ballPaddleHandling() {
+function ufoPaddleHandling() {
     var paddleTopEdgeY = canvas.height - PADDLE_DIST_FROM_EDGE;
     var paddleBottomEdgeY = paddleTopEdgeY + PADDLE_THICKNESS;
     var paddleLeftEdgeX = paddleX;
     var paddleRightEdgeX = paddleLeftEdgeX + PADDLE_WIDTH;
-    if (ballY > paddleTopEdgeY && // below the top of paddle
-        ballY < paddleBottomEdgeY && // above bottom of paddle
-        ballX > paddleLeftEdgeX && // right of the left side of paddle
-        ballX < paddleRightEdgeX) { // left of the left side of paddle
+    if (ufoY > paddleTopEdgeY && // below the top of paddle
+        ufoY < paddleBottomEdgeY && // above bottom of paddle
+        ufoX > paddleLeftEdgeX && // right of the left side of paddle
+        ufoX < paddleRightEdgeX) { // left of the left side of paddle
 
-        ballSpeedY *= -1; //sends ball back to where it came from
+        ufoSpeedY *= -1; //sends ufo back to where it came from
 
-        var centerOfPaddleX = paddleX + PADDLE_WIDTH / 2; //how far the ball is from the center of the paddle
-        var ballDistFromPaddleCenterX = ballX - centerOfPaddleX;
-        ballSpeedX = ballDistFromPaddleCenterX * 0.35;  //value b/n 0 - 1 to decrease the severity of ball speed
+        var centerOfPaddleX = paddleX + PADDLE_WIDTH / 2; //how far the ufo is from the center of the paddle
+        var ufoDistFromPaddleCenterX = ufoX - centerOfPaddleX;
+        ufoSpeedX = ufoDistFromPaddleCenterX * 0.35;  //value b/n 0 - 1 to decrease the severity of ufo speed
 
         if (bricksLeft == 0) {
             brickReset();
         } // out of bricks
-    } // ball center inside paddle
-} // end of ballPaddleHandling
+    } // ufo center inside paddle
+} // end of ufoPaddleHandling
 
 
 function moveAll() {
-    ballMove();
+    ufoMove();
 
-    ballBrickHandling();
+    ufoBrickHandling();
 
-    ballPaddleHandling();
+    ufoPaddleHandling();
 }
 
 function rowColToArrayIndex(col, row) {

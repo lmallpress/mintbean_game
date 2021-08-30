@@ -10,8 +10,14 @@ window.onload = function () {
 
     canvas.addEventListener('mousemove', updateMousePos);
 
+    ufoPic.onload = function () {
+        ufoPicLoaded = true;
+    }
+    ufoPic.src = "ufo.png";
+
+
     brickReset();
-    ballReset(); //enabling this starts the ball at the bottom of the bricks. Disabling starts ball inside the bricks at 75
+    ufoReset(); //enabling this starts the ufo at the bottom of the bricks. Disabling starts ufo inside the bricks at 75
 }
 
 function updateAll() {
@@ -38,14 +44,18 @@ function drawBricks() {
 
 
 
-//background, ball, brick colors, sizes
+//background, ufo, brick colors, sizes
 function drawAll() {
     colorRect(0, 0, canvas.width, canvas.height, '#7CFC00'); // clear screen
 
-    colorCircle(ballX, ballY, 10, '#800000'); // draw ball
+    //colorCircle(ufoX, ufoY, 10, '#800000'); // draw ufo
+    if (ufoPicLoaded) {
+        canvasContext.drawImage(ufoPic,
+            ufoX - ufoPic.width / 2, ufoY - ufoPic.height / 2);
+    }
 
     colorRect(paddleX, canvas.height - PADDLE_DIST_FROM_EDGE,
-        PADDLE_WIDTH, PADDLE_THICKNESS, '#4B0082');
+        PADDLE_WIDTH, PADDLE_THICKNESS, '#800000');
 
     drawBricks();
 }

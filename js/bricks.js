@@ -1,13 +1,26 @@
+
+var playerXScore = 0;
+const WINNING_SCORE = 5;
+
+var showingWinScreen = false;
+
+
 const BRICK_W = 80;
 const BRICK_H = 20;
 const BRICK_GAP = 2;
 const BRICK_COLS = 10;
 const BRICK_ROWS = 14;
+
 var brickGrid = new Array(BRICK_COLS * BRICK_ROWS);
 var bricksLeft = 0;
 
 
 function brickReset() {
+    if (playerXScore >= WINNING_SCORE) {
+        playerXScore = 0;
+        showingWinScreen = true;
+    }
+
     bricksLeft = 0;
     var i;
     for (i = 0; i < 3 * BRICK_COLS; i++) {
@@ -32,6 +45,8 @@ function isBrickAtColRow(col, row) {
 
 
 function ufoBrickHandling() {
+
+
     var ufoBrickCol = Math.floor(ufoX / BRICK_W);
     var ufoBrickRow = Math.floor(ufoY / BRICK_H);
     var brickIndexUnderUfo = rowColToArrayIndex(ufoBrickCol, ufoBrickRow);
@@ -44,7 +59,7 @@ function ufoBrickHandling() {
         if (isBrickAtColRow(ufoBrickCol, ufoBrickRow)) {
             brickGrid[brickIndexUnderUfo] = false;
             bricksLeft--;
-           
+
             var prevUfoX = ufoX - ufoSpeedX;
             var prevUfoY = ufoY - ufoSpeedY;
             var prevBrickCol = Math.floor(prevUfoX / BRICK_W);
@@ -56,12 +71,16 @@ function ufoBrickHandling() {
                 if (isBrickAtColRow(prevBrickCol, ufoBrickRow) == false) {
                     ufoSpeedX *= -1;
                     bothTestsFailed = false;
+                    ufoReset();
+                    playerXScore++;
                 }
             }
             if (prevBrickRow != ufoBrickRow) {
                 if (isBrickAtColRow(ufoBrickCol, prevBrickRow) == false) {
                     ufoSpeedY *= -1;
                     bothTestsFailed = false;
+                    ufoReset();
+                    playerXScore++;
                 }
             }
 
@@ -70,6 +89,6 @@ function ufoBrickHandling() {
                 ufoSpeedY *= -1;
             }
 
-        } // end of brick found
-    } // end of valid col and row
-} // end of ufoBrickHandling function
+            } // end of brick found
+        } // end of valid col and row
+    } // end of ufoBrickHandling function

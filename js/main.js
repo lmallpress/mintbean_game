@@ -13,8 +13,7 @@ window.onload = function () {
     ufoPic.onload = function () {
         ufoPicLoaded = true;
     }
-    ufoPic.src = "ufo.png";
-
+    ufoPic.src = "images/ufo.png";
 
     brickReset();
     ufoReset(); //enabling this starts the ufo at the bottom of the bricks. Disabling starts ufo inside the bricks at 75
@@ -36,7 +35,8 @@ function drawBricks() {
             if (brickGrid[arrayIndex]) {
                 colorRect(BRICK_W * eachCol, BRICK_H * eachRow,
                     BRICK_W - BRICK_GAP, BRICK_H - BRICK_GAP, '#e67e00');
-            } // end of is this brick here
+
+            } // end brick here
         } // end of for each brick
     } // end of for each row
 
@@ -48,15 +48,25 @@ function drawBricks() {
 function drawAll() {
     colorRect(0, 0, canvas.width, canvas.height, '#7CFC00'); // clear screen
 
+    if (showingWinScreen) {
+        canvasContext.fillStyle = '#800000';
+        canvasContext.fillText("Click to Continue", 25, 25);
+        return;
+    }
+
+
     //colorCircle(ufoX, ufoY, 10, '#800000'); // draw ufo
     if (ufoPicLoaded) {
-       // canvasContext.drawImage(ufoPic,
-         //   ufoX - ufoPic.width / 2, ufoY - ufoPic.height / 2);
-         drawBitmapCenteredWithRotation(ufoPic, ufoX, ufoY, ufoAng);
+        // canvasContext.drawImage(ufoPic,
+        //   ufoX - ufoPic.width / 2, ufoY - ufoPic.height / 2);
+        drawBitmapCenteredWithRotation(ufoPic, ufoX, ufoY, ufoAng);
     }
 
     colorRect(paddleX, canvas.height - PADDLE_DIST_FROM_EDGE,
         PADDLE_WIDTH, PADDLE_THICKNESS, '#800000');
 
     drawBricks();
+
+    canvasContext.fillText(playerXScore, 25, 25);
+
 }

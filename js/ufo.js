@@ -32,7 +32,7 @@ function ufoMove() {
     }
     if (ufoY < 0 && ufoSpeedY < 0.0) { // top
         ufoSpeedY *= -1;
-    }
+     }
     if (ufoY > canvas.height) { // bottom
         ufoReset();
         brickReset();

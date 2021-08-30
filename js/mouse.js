@@ -1,4 +1,3 @@
-
 var mouseX = 0;
 var mouseY = 0;
 

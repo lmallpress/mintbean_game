@@ -4,8 +4,8 @@ var ufoPic = document.createElement("img");
 var ufoPicLoaded = false;
 
 
-var ufoX = 75; //position of where ufo starts
-var ufoY = 75;  //position of where ufo starts
+var ufoX = 200; //position of where ufo starts
+var ufoY = 200;  //position of where ufo starts
 var ufoAng = 0;
 var ufoSpeedX = 5;
 var ufoSpeedY = 7;

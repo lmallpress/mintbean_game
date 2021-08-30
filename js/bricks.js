@@ -70,7 +70,7 @@ function ufoBrickHandling() {
                     ufoSpeedX *= -1;
                     bothTestsFailed = false;
                     playerXScore++;
-                    //ufoReset();
+                    ufoReset();
 
                 }
             }

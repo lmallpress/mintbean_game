@@ -8,6 +8,7 @@ window.onload = function () {
     var framesPerSecond = 30;
     setInterval(updateAll, 1000 / framesPerSecond);
 
+    canvas.addEventListener('mousedown', handleMouseClick);
     canvas.addEventListener('mousemove', updateMousePos);
 
     ufoPic.onload = function () {
@@ -49,8 +50,9 @@ function drawAll() {
     colorRect(0, 0, canvas.width, canvas.height, '#7CFC00'); // clear screen
 
     if (showingWinScreen) {
+        canvasContext.font = "30px Lato";
         canvasContext.fillStyle = '#800000';
-        canvasContext.fillText("Click to Continue", 25, 25);
+        canvasContext.fillText("Click to Continue", 300, 500);
         return;
     }
 
@@ -67,6 +69,7 @@ function drawAll() {
 
     drawBricks();
 
-    canvasContext.fillText(playerXScore, 25, 25);
-
+    canvasContext.font = "30px Lato";
+    canvasContext.fillStyle = '#800000';
+    canvasContext.fillText("Score: " + playerXScore, 300, 50);
 }

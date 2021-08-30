@@ -3,6 +3,14 @@ var mouseY = 0;
 
 
 //create functions and call them in the window.onload function section
+
+function handleMouseClick(evt){
+    if(showingWinScreen){
+        playerXScore = 0;
+        showingWinScreen = false;
+    }
+}
+
 function updateMousePos(evt) {
     var rect = canvas.getBoundingClientRect();  //position of canvas on page
     var root = document.documentElement;

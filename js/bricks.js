@@ -16,7 +16,7 @@ var bricksLeft = 0;
 
 
 function brickReset() {
-    if (playerXScore >= WINNING_SCORE) {
+    if (playerXScore = WINNING_SCORE) {
         playerXScore = 0;
         showingWinScreen = true;
     }
@@ -45,8 +45,6 @@ function isBrickAtColRow(col, row) {
 
 
 function ufoBrickHandling() {
-
-
     var ufoBrickCol = Math.floor(ufoX / BRICK_W);
     var ufoBrickRow = Math.floor(ufoY / BRICK_H);
     var brickIndexUnderUfo = rowColToArrayIndex(ufoBrickCol, ufoBrickRow);
@@ -71,24 +69,25 @@ function ufoBrickHandling() {
                 if (isBrickAtColRow(prevBrickCol, ufoBrickRow) == false) {
                     ufoSpeedX *= -1;
                     bothTestsFailed = false;
-                    ufoReset();
                     playerXScore++;
+                    ufoReset();
+
                 }
             }
             if (prevBrickRow != ufoBrickRow) {
                 if (isBrickAtColRow(ufoBrickCol, prevBrickRow) == false) {
                     ufoSpeedY *= -1;
                     bothTestsFailed = false;
+                    playerXScore++; //must be before reset
                     ufoReset();
-                    playerXScore++;
                 }
             }
 
             if (bothTestsFailed) { // armpit case, prevents ufo from going through
                 ufoSpeedX *= -1;
                 ufoSpeedY *= -1;
-            }
-
-            } // end of brick found
+            }// end of brick found
         } // end of valid col and row
-    } // end of ufoBrickHandling function
+
+    }
+} // end of ufoBrickHandling function

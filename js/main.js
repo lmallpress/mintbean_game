@@ -29,7 +29,7 @@ function drawBricks() {
 
             if (brickGrid[arrayIndex]) {
                 colorRect(BRICK_W * eachCol, BRICK_H * eachRow,
-                    BRICK_W - BRICK_GAP, BRICK_H - BRICK_GAP, 'blue');
+                    BRICK_W - BRICK_GAP, BRICK_H - BRICK_GAP, '#e67e00');
             } // end of is this brick here
         } // end of for each brick
     } // end of for each row
@@ -40,32 +40,12 @@ function drawBricks() {
 
 //background, ball, brick colors, sizes
 function drawAll() {
-    colorRect(0, 0, canvas.width, canvas.height, 'black'); // clear screen
+    colorRect(0, 0, canvas.width, canvas.height, '#7CFC00'); // clear screen
 
-    colorCircle(ballX, ballY, 10, 'white'); // draw ball
+    colorCircle(ballX, ballY, 10, '#800000'); // draw ball
 
     colorRect(paddleX, canvas.height - PADDLE_DIST_FROM_EDGE,
-        PADDLE_WIDTH, PADDLE_THICKNESS, 'white');
+        PADDLE_WIDTH, PADDLE_THICKNESS, '#4B0082');
 
     drawBricks();
-}
-
-
-//this will draw the rectangle 
-function colorRect(topLeftX, topLeftY, boxWidth, boxHeight, fillColor) {
-    canvasContext.fillStyle = fillColor;
-    canvasContext.fillRect(topLeftX, topLeftY, boxWidth, boxHeight); //top corner of the screen
-}
-
-//circle business
-function colorCircle(centerX, centerY, radius, fillColor) {
-    canvasContext.fillStyle = fillColor;
-    canvasContext.beginPath();
-    canvasContext.arc(centerX, centerY, 10, 0, Math.PI * 2, true); //circle center
-    canvasContext.fill();
-}
-
-function colorText(showWords, textX, textY, fillColor) {
-    canvasContext.fillStyle = fillColor;
-    canvasContext.fillText(showWords, textX, textY);
 }

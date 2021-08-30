@@ -1,4 +1,3 @@
-
 const PADDLE_WIDTH = 100;
 const PADDLE_THICKNESS = 10; //paddle is horizontal and at bottom (10,100)
 const PADDLE_DIST_FROM_EDGE = 60;

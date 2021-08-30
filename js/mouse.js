@@ -1,3 +1,4 @@
+
 var mouseX = 0;
         var mouseY = 0;
 
@@ -13,4 +14,3 @@ var mouseX = 0;
             paddleX = mouseX - PADDLE_WIDTH / 2; //subtracting half of the paddle with centers the paddle on the mouse
         }
 
-        

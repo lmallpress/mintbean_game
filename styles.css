@@ -1,0 +1,67 @@
+
+body {
+    position: relative; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-family: "Open Sans", sans-serif;
+}
+
+.site-footer {
+background: #222;
+text-align: center;
+bottom: 0; 
+z-index: 999999; 
+position: fixed center;
+}
+
+#background {
+background-image: url('https://res.cloudinary.com/ellamackey/image/upload/v1492897176/centralpark.jpg');
+/* opacity: 0.50; */
+height: 100vh; /*how to convert this to px? Don't understand vh or why px isn't working */
+padding: 0;
+margin: 0;
+z-index: -1;
+overflow: hidden;  
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed; 
+}
+
+#lastPage {
+background-image: url('https://res.cloudinary.com/ellamackey/image/upload/c_scale,h_730/v1491673455/FenceZekeFilter.jpg');
+/*opacity: 0.50; */
+height: 100vh; /*how to convert this to px? Don't understand vh or why px isn't working*/
+padding: 0;
+margin-top: 0;
+z-index: -1;
+overflow: hidden;  
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed; 
+}
+
+#projectPage {
+background-color:  #D0D0D0;
+text-align: center;
+}
+
+.site-footer {
+color: #8c8c8c;
+}
+
+.site-footer a {
+color: #8c8c8c;
+text-decoration: none;
+}
+
+.site-footer p {
+text-align: center;
+font-family: "Open Sans", sans-serif;   
+font-size: 16px;
+font-weight: 900;
+color: #ffffff;
+}  
+

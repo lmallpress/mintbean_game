@@ -52,7 +52,7 @@ function drawAll() {
     if (showingWinScreen) {
         canvasContext.font = "30px Lato";
         canvasContext.fillStyle = '#800000';
-        canvasContext.fillText("Click to Continue", 300, 500);
+        canvasContext.fillText("Click to Continue", 300, 300);
         return;
     }
 

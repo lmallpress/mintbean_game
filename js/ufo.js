@@ -14,10 +14,10 @@ var ufoSpeedY = 7;
 function ufoReset() {
     //ufoSpeedX = -ufoSpeedX;
     ufoSpeedX = 2;
- ufoSpeedY = 4;
+    ufoSpeedY = 4;
     ufoX = canvas.width / 2;
     //ufoY = canvas.height / 2;
-    ufoY = (BRICK_ROWS * BRICK_H) + (BRICK_ROWS* BRICK_GAP)
+    ufoY = (BRICK_ROWS * BRICK_H) + (BRICK_ROWS * BRICK_GAP)
 }
 
 
@@ -36,7 +36,7 @@ function ufoMove() {
     }
     if (ufoY < 0 && ufoSpeedY < 0.0) { // top
         ufoSpeedY *= -1;
-     }
+    }
     if (ufoY > canvas.height) { // bottom
         ufoReset();
         brickReset();

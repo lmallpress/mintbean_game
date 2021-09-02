@@ -3,7 +3,7 @@ A simple brick breaker game.  Move your mouse to hit the ufo
 Here is a link to play it live:  https://marie-allpress-brickgame.netlify.app/
 
 
-I give all credit to Chris DeLeon (@ChrisDeLeon) for the following: 
+I give all credit to Chris DeLeon (@ChrisDeLeon; https://chrisdeleon.com/) for the following: 
 
 Intro to Game Programming course (https://www.udemy.com/course/code-your-first-game/learn/lecture/2701894?start=300#overview 
 

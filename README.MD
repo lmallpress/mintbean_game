@@ -1,6 +1,6 @@
 A simple brick breaker game.  Move your mouse to hit the ufo
 
-Here is a link to play it live:  https://mintbeanhackathon-2dgame.vercel.app/
+Here is a link to play it live:  https://mintbean-game.vercel.app/
 
 
 I give all credit to Chris DeLeon (@ChrisDeLeon; https://chrisdeleon.com/) for the following: 
